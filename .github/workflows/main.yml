@@ -28,3 +28,7 @@ jobs:
 
       - name: Configuring credentials
         run: anypoint-cli-v4 conf client_id ${{secrets.CA_CLIENT_ID}} && anypoint-cli-v4 conf client_secret ${{secrets.CA_CLIENT_SECRET}} && anypoint-cli-v4 conf organization 59babe5d-edac-47b5-ab09-1e1e5b512caf
+
+      - name: Print Account information
+        run: anypoint-cli-v4 account:user:describe
+        
