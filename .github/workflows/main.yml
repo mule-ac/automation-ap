@@ -14,7 +14,7 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "compile"
-  specification:
+  anypoint-generic:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
@@ -25,3 +25,6 @@ jobs:
 
       - name: Installing Anypoint CLI
         run: npm install -g anypoint-cli-v4
+
+      - name: Configuring credentials
+        run: anypoint-cli-v4 conf client_id ${{secrets.CA_CLIENT_ID}} && anypoint-cli-v4 conf client_secret ${{secrets.CA_CLIENT_SECRET}} && anypoint-cli-v4 conf organization 59babe5d-edac-47b5-ab09-1e1e5b512caf
